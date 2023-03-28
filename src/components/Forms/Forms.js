@@ -22,6 +22,7 @@ const Forms = (props) => {
     <section className="forms">
       <form onSubmit={onSave}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
+        <TextField label="Cargo" placeholder="Digite seu cargo" />
         <TextField
           mandatory={isMandatory}
           label="Nome"
