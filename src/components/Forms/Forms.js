@@ -5,9 +5,11 @@ import Button from "../Button/Button";
 import { useState } from "react";
 
 /**
- * Um componente de formulário que permite ao usuário inserir dados para criar um card de colaborador.
+ * Componente de formulário que permite ao usuário inserir dados para criar um card de colaborador.
  *
- * @returns {React.Element} Um elemento React que contém um formulário.
+ * @param {Object} props - As propriedades passadas para o componente.
+ * @param {Function} props.onRegisteredEmployees - A função de callback chamada quando um novo funcionário é registrado.
+ * @returns {React.Element} Um elemento React que contém o formulário.
  */
 const Forms = (props) => {
   const [name, setName] = useState("");
@@ -17,9 +19,14 @@ const Forms = (props) => {
 
   const teams = ["Programação", "Frontend", "Data Science", "DevOps"];
   const isMandatory = true;
+
+  /**
+   * Função de callback que é chamada quando o usuário envia o formulário.
+   *
+   * @param {Object} event - O objeto de evento do formulário.
+   */
   const onSave = (event) => {
     event.preventDefault();
-    // console.log("Usuário foi submetido form:", { name, office, image, team });
     props.onRegisteredEmployees({ name, office, image, team });
   };
 

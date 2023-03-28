@@ -10,6 +10,11 @@ import Forms from "./components/Forms/Forms";
 function App() {
   const [employees, setEmployees] = useState([]);
 
+  /**
+   * Função de callback para adicionar um novo funcionário à lista de funcionários.
+   *
+   * @param {Object} employee - O objeto contendo os dados do novo funcionário.
+   */
   const onNewRegisteredEmployee = (employee) => {
     console.log("onNewRegisteredEmployee", employee);
     setEmployees([...employees, employee]);
