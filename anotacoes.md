@@ -110,3 +110,114 @@ O uso da propriedade children é muito comum no React e é uma maneira poderosa 
 3. Trabalhando com elementos aninhados usando a prop children: A propriedade children é uma prop especial no React que permite que um componente pai passe elementos React filhos para seus componentes filhos. Isso permite que um componente tenha uma estrutura aninhada de elementos, o que é útil para criar componentes mais complexos e flexíveis.
 
 4. Ouvindo eventos disparados pelo DOM: No React, os eventos DOM, como onClick ou onSubmit, são tratados de forma um pouco diferente do que em JavaScript puro. Em vez de adicionar manipuladores de eventos diretamente ao DOM, você adiciona um manipulador de eventos a um elemento React usando a sintaxe JSX. Isso permite que você crie manipuladores de eventos reutilizáveis e mantenha o código do manipulador de eventos junto com o código do componente que o usa.
+
+# Aula - 3: Interagindo com o usuário
+
+## Sobre o onChange:
+
+O onChange é um evento do React JS que é acionado quando o valor de um elemento de formulário é alterado pelo usuário. Ele é comumente usado em componentes de entrada de formulário, como input, select e textarea, para capturar e lidar com alterações de entrada do usuário.
+
+Quando um evento onChange é acionado, o React passa um objeto de evento sintético para a função de tratamento de evento. Esse objeto contém informações sobre o evento, como o tipo de evento, o elemento do DOM que disparou o evento e o novo valor do elemento.
+
+Para usar o evento onChange em um componente de entrada de formulário no React JS, você deve definir uma função de tratamento de evento que será executada sempre que o evento for acionado. Essa função deve ser passada como uma propriedade para o elemento de formulário que você deseja monitorar.
+
+Aqui está um exemplo básico de como usar o onChange em um componente de entrada de formulário de texto:
+
+```javascript
+import React, { useState } from "react";
+
+function MyForm() {
+  const [inputValue, setInputValue] = useState("");
+
+  function handleInputChange(event) {
+    setInputValue(event.target.value);
+  }
+
+  return (
+    <div>
+      <label htmlFor="my-input">Digite algo:</label>
+      <input
+        id="my-input"
+        type="text"
+        value={inputValue}
+        onChange={handleInputChange}
+      />
+      <p>Você digitou: {inputValue}</p>
+    </div>
+  );
+}
+```
+
+Neste exemplo, criamos um componente MyForm que possui um estado para armazenar o valor do input (inputValue). Em seguida, definimos uma função handleInputChange que atualiza o estado inputValue com o novo valor do input sempre que o evento onChange é acionado. Finalmente, passamos a função handleInputChange como uma propriedade onChange para o elemento input para monitorar as alterações do input e atualizar o valor mostrado na tela.
+
+## Sobre os hooks:
+
+Em React, um **hook** é uma função especial que permite que você use recursos do React, como estado e ciclo de vida, em componentes funcionais. Hooks são uma adição relativamente recente ao React, introduzida na versão 16.8, e fornecem uma maneira mais simples e elegante de gerenciar o estado e o comportamento do ciclo de vida em componentes de função.
+
+Os hooks são funções que seguem uma convenção de nomenclatura específica: o nome do **hook** sempre começa com a palavra "use". Existem vários hooks diferentes disponíveis no React, incluindo o useState, useEffect, useContext, useRef, useReducer, entre outros. Cada **hook** oferece recursos específicos para ajudar na construção de componentes funcionais.
+
+Os hooks permitem que você divida um componente complexo em funções menores e independentes, cada uma com seu próprio estado e comportamento. Isso torna mais fácil gerenciar o código e também ajuda a evitar problemas comuns, como compartilhamento excessivo de estado e lógica duplicada.
+
+Além disso, os hooks também são mais flexíveis do que as classes, permitindo que você use recursos do React em qualquer lugar dentro de uma função de componente. Eles também são mais fáceis de testar e reutilizar em outros componentes.
+
+Em resumo, os hooks são uma maneira poderosa e flexível de gerenciar o estado e o comportamento do ciclo de vida em componentes de função do React, tornando-os mais fáceis de escrever, testar e manter.
+
+### Sobre o _useState_:
+
+O useState é um hook do React que permite que você adicione estado a um componente de função. Com ele, você pode criar uma variável de estado que pode ser atualizada e refletida na renderização do componente. Isso permite que você crie componentes interativos e dinâmicos, que mudam com base na interação do usuário.
+
+O useState é usado para criar uma variável de estado e uma função para atualizar esse estado. A função de atualização pode ser chamada a qualquer momento, e sempre que é chamada, o estado é atualizado e o componente é re-renderizado com o novo valor do estado.
+
+A sintaxe básica do useState é a seguinte:
+
+```javascript
+import React, { useState } from 'react';
+
+function MyComponent() {
+  const [myState, setMyState] = useState(initialState);
+
+  return (
+    // component JSX
+  );
+}
+
+```
+
+Na primeira linha, importamos o hook useState do React. Em seguida, definimos uma função de componente MyComponent. Dentro do componente, usamos a desestruturação de array para extrair uma variável de estado myState e uma função setMyState para atualizar o estado. O useState é chamado com um parâmetro initialState, que é o valor inicial do estado.
+
+Quando a função setMyState é chamada, o estado myState é atualizado com o novo valor, e o componente é re-renderizado com o novo valor do estado.
+
+Aqui está um exemplo simples de como usar o useState:
+
+```javascript
+import React, { useState } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <div>
+      <p>Você clicou {count} vezes</p>
+      <button onClick={handleClick}>Clique aqui</button>
+    </div>
+  );
+}
+```
+
+Neste exemplo, criamos um componente de contador que usa useState para adicionar um estado count ao componente. Quando o botão é clicado, a função handleClick é chamada, que chama a função setCount para atualizar o estado count com o novo valor. A mensagem exibida na tela é atualizada com o novo valor do estado após cada clique.
+
+## O que foi feito na Aula - 3:
+
+- Controlar inputs utilizando value e onChange;
+- Gerenciar o estado de um componente, utilizando o useState;
+- Trabalhar com props que são funções.
+
+### Explicação:
+
+1. Para controlar um input em React, podemos utilizar as propriedades value e onChange. A propriedade value define o valor atual do input, enquanto a propriedade onChange define uma função que será chamada sempre que o valor do input for alterado pelo usuário.
+2. O hook useState permite que um componente funcional do React tenha um estado interno, que pode ser atualizado e refletido na renderização do componente. Para usar o useState, é necessário importá-lo do React e definir uma variável de estado e uma função para atualizar esse estado. A função de atualização pode ser chamada a qualquer momento, e sempre que é chamada, o estado é atualizado e o componente é re-renderizado com o novo valor do estado.
+3. Em React, é comum passar funções como props para componentes filhos, permitindo que os filhos chamem a função pai para atualizar o estado ou executar outras ações. Para passar uma função como prop para um componente filho, basta adicioná-la como uma propriedade do componente pai e, em seguida, chamá-la no componente filho.

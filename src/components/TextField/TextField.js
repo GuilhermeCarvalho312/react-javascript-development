@@ -9,10 +9,16 @@ import "./TextField.css";
  * @returns {React.Element} Um elemento React que exibe uma label e uma entrada de texto.
  */
 const TextField = (props) => {
+  const onTyped = (event) => {
+    props.onChanged(event.target.value);
+  };
+
   return (
     <div className="field-text">
       <label>{props.label}</label>
       <input
+        value={props.value}
+        onChange={onTyped}
         required={props.mandatory}
         placeholder={props.placeholder}
         type="text"

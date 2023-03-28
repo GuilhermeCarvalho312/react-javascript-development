@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Banner from "./components/Banner/Banner";
 import Forms from "./components/Forms/Forms";
 
@@ -7,10 +8,19 @@ import Forms from "./components/Forms/Forms";
  * @returns {React.Element} Um elemento React que inclui os componentes Banner e Forms.
  */
 function App() {
+  const [employees, setEmployees] = useState([]);
+
+  const onNewRegisteredEmployee = (employee) => {
+    console.log("onNewRegisteredEmployee", employee);
+    setEmployees([...employees, employee]);
+  };
+
   return (
     <div className="App">
       <Banner />
-      <Forms />
+      <Forms
+        onRegisteredEmployees={(employee) => onNewRegisteredEmployee(employee)}
+      />
     </div>
   );
 }

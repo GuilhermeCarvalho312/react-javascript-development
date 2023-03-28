@@ -7,7 +7,7 @@ import "./Button.css";
  * @param {React.ReactNode} props.children - O conteúdo do botão.
  * @returns {React.Element} Um elemento React que representa o botão.
  * @example
- * <Button>Enviar</Button>
+ * <Button>Criar card</Button>
  */
 const Button = (props) => {
   return <button className="form-button">{props.children}</button>;
