@@ -221,3 +221,82 @@ Neste exemplo, criamos um componente de contador que usa useState para adicionar
 1. Para controlar um input em React, podemos utilizar as propriedades value e onChange. A propriedade value define o valor atual do input, enquanto a propriedade onChange define uma função que será chamada sempre que o valor do input for alterado pelo usuário.
 2. O hook useState permite que um componente funcional do React tenha um estado interno, que pode ser atualizado e refletido na renderização do componente. Para usar o useState, é necessário importá-lo do React e definir uma variável de estado e uma função para atualizar esse estado. A função de atualização pode ser chamada a qualquer momento, e sempre que é chamada, o estado é atualizado e o componente é re-renderizado com o novo valor do estado.
 3. Em React, é comum passar funções como props para componentes filhos, permitindo que os filhos chamem a função pai para atualizar o estado ou executar outras ações. Para passar uma função como prop para um componente filho, basta adicioná-la como uma propriedade do componente pai e, em seguida, chamá-la no componente filho.
+
+# Aula - 4:
+
+## Sobre o react CLI:
+
+- Link do react CLI: https://www.npmjs.com/package/cli-react;
+- Usei o react CLI para gerar o componente de Teaams;
+
+O React CLI é uma ferramenta de linha de comando que ajuda a criar projetos React rapidamente, além de fornecer um conjunto de comandos para gerar arquivos de código comumente usados, como componentes, páginas e serviços. Ele é baseado no Create React App e adiciona algumas funcionalidades adicionais para ajudar na criação e configuração de aplicativos React.
+
+Com o React CLI, é possível criar um novo projeto React em segundos, usando o comando react-cli create. Ele também fornece comandos para executar, testar e compilar o aplicativo para produção. Além disso, o React CLI também oferece recursos para gerar componentes e páginas comuns, que são criados com uma estrutura básica de arquivos e pastas, que podem ser personalizadas de acordo com as necessidades do projeto.
+
+O React CLI é muito útil para desenvolvedores React que desejam acelerar o processo de criação de novos projetos e componentes. Além disso, ele permite que os desenvolvedores trabalhem em vários projetos com diferentes configurações e dependências, sem precisar configurar manualmente cada projeto.
+
+O React CLI é uma das muitas ferramentas disponíveis para o ecossistema React, e seu uso pode ser benéfico para desenvolvedores iniciantes e experientes que desejam automatizar tarefas comuns e acelerar o processo de desenvolvimento.
+
+## Como fazer uma renderização condicional:
+
+A renderização condicional em React permite que você exiba ou oculte componentes ou elementos da sua interface do usuário com base em determinadas condições. Existem várias maneiras de fazer isso em React, aqui estão algumas das mais comuns:
+
+1. Usando operador ternário:
+   Você pode usar o operador ternário para renderizar diferentes componentes ou elementos com base em uma condição. Por exemplo, para renderizar um componente diferente com base no valor de uma propriedade, você pode fazer o seguinte:
+
+```javascript
+function App(props) {
+  const { isLogin } = props;
+  return <div>{isLogin ? <LoggedIn /> : <LoggedOut />}</div>;
+}
+```
+
+2. Usando o método &&:
+   O método && pode ser usado para renderizar um componente ou elemento com base em uma condição. Por exemplo, para renderizar um componente somente se uma propriedade for verdadeira, você pode fazer o seguinte:
+
+```javascript
+function App(props) {
+  const { isLoggedIn } = props;
+  return <div>{isLoggedIn && <LoggedIn />}</div>;
+}
+```
+
+3. Usando o método if-else:
+   Você pode usar o método if-else para renderizar diferentes componentes ou elementos com base em uma condição. Por exemplo, para renderizar um componente diferente com base no valor de uma propriedade, você pode fazer o seguinte:
+
+```javascript
+function App(props) {
+  const { isLogin } = props;
+  if (isLogin) {
+    return <LoggedIn />;
+  } else {
+    return <LoggedOut />;
+  }
+}
+```
+
+Essas são apenas algumas maneiras de fazer renderização condicional em React. Qual método usar depende do seu caso de uso e preferência pessoal.
+
+## O que é PropDriling:
+
+Prop drilling é um problema que pode ocorrer em aplicações React quando as propriedades precisam ser passadas através de vários componentes, mesmo quando os componentes intermediários não precisam dessas propriedades. Isso pode levar a um código confuso e difícil de manter.
+
+Para evitar o prop drilling, uma solução é utilizar o gerenciamento de estado, como o Redux ou o contexto do React. Com o gerenciamento de estado, as propriedades podem ser armazenadas em um estado global e acessadas pelos componentes que precisam delas, eliminando a necessidade de passá-las por meio de todos os componentes intermediários.
+
+Outra solução é utilizar componentes de ordem superior (HOCs) ou render props, que permitem encapsular a lógica do componente em um componente de nível superior e fornecer somente as propriedades necessárias para o componente filho. Isso pode tornar o código mais legível e fácil de manter.
+
+- link de artigo para leitura: https://www.alura.com.br/artigos/prop-drilling-no-react-js
+
+## O que foi feito na aula - 4:
+
+- Manipular e transformar arrays de objetos(usando o método map);
+- Filtrar itens de um array(usando o método filter);
+- Renderização condicional.
+
+### Expliação:
+
+Na aula 4, foram apresentadas algumas técnicas para manipular arrays de objetos em JavaScript, tais como o uso do método map para transformar cada objeto em uma nova forma, e o método filter para filtrar objetos baseado em um critério específico.
+
+Também foi abordado o conceito de renderização condicional em ReactJS, que consiste em exibir ou não um componente baseado em um determinado estado ou propriedade. Isso pode ser feito através de condicionais como if/else ou operadores ternários.
+
+Essas técnicas são importantes para o desenvolvimento de aplicações web, permitindo a manipulação e visualização de dados de forma mais eficiente e dinâmica.

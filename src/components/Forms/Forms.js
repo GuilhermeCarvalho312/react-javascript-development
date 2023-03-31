@@ -14,10 +14,8 @@ import { useState } from "react";
 const Forms = (props) => {
   const [name, setName] = useState("");
   const [office, setOffice] = useState("");
-  const [image, setImage] = useState("");
-  const [team, setTeam] = useState("Programação");
-
-  const teams = ["Programação", "Frontend", "Data Science", "DevOps"];
+  const [imageLink, setImageLink] = useState("");
+  const [team, setTeam] = useState(props.teams[0]);
   const isMandatory = true;
 
   /**
@@ -27,7 +25,15 @@ const Forms = (props) => {
    */
   const onSave = (event) => {
     event.preventDefault();
-    props.onRegisteredEmployees({ name, office, image, team });
+    props.onRegisteredEmployees({ name, office, imageLink, team });
+    clearForms();
+  };
+
+  const clearForms = () => {
+    setName("");
+    setOffice("");
+    setImageLink("");
+    setTeam("");
   };
 
   return (
@@ -57,15 +63,15 @@ const Forms = (props) => {
           mandatory={isMandatory}
           label="Imagem"
           placeholder="Informe o endereço de imagem"
-          value={image}
+          value={imageLink}
           onChanged={(value) => {
-            setImage(value);
+            setImageLink(value);
           }}
         />
         <DropDownList
           mandatory={isMandatory}
           label="Time"
-          itens={teams}
+          itens={props.teams}
           value={team}
           onChanged={(value) => {
             setTeam(value);
