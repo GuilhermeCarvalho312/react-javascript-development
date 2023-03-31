@@ -72,7 +72,7 @@ const Forms = (props) => {
           mandatory={isMandatory}
           label="Time"
           itens={props.teams}
-          value={team}
+          valueDropdown={team}
           onChanged={(value) => {
             setTeam(value);
           }}

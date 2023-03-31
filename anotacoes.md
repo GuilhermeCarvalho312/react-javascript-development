@@ -300,3 +300,5 @@ Na aula 4, foram apresentadas algumas técnicas para manipular arrays de objetos
 Também foi abordado o conceito de renderização condicional em ReactJS, que consiste em exibir ou não um componente baseado em um determinado estado ou propriedade. Isso pode ser feito através de condicionais como if/else ou operadores ternários.
 
 Essas técnicas são importantes para o desenvolvimento de aplicações web, permitindo a manipulação e visualização de dados de forma mais eficiente e dinâmica.
+
+## Aula - 5: Caça aos bugs

@@ -35,7 +35,7 @@ const Team = (props) => {
 };
 
 Team.propTypes = {
-  name: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
   primaryColor: PropTypes.string.isRequired,
   secondaryColor: PropTypes.string.isRequired,
 };
