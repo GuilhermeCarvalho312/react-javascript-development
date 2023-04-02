@@ -1,6 +1,6 @@
 # Como gerar um JsDocs no seu projeto:
 
-Sim, você pode usar o JSDoc para criar comentários descritivos no ReactJS. O JSDoc é uma ferramenta de documentação para JavaScript que gera documentação a partir de comentários no código-fonte. Você pode usar a sintaxe do JSDoc para documentar seus componentes React e funções relacionadas.
+O JSDoc é uma ferramenta de documentação para JavaScript que gera documentação a partir de comentários no código-fonte. Você pode usar a sintaxe do JSDoc para documentar seus componentes React e funções relacionadas.
 
 Para usar o JSDoc em seu projeto React, siga estas etapas:
 
