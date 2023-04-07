@@ -301,4 +301,13 @@ Também foi abordado o conceito de renderização condicional em ReactJS, que co
 
 Essas técnicas são importantes para o desenvolvimento de aplicações web, permitindo a manipulação e visualização de dados de forma mais eficiente e dinâmica.
 
-## Aula - 5: Caça aos bugs
+# CURSO-2
+
+## React Icons:
+
+- link: https://react-icons.github.io/react-icons
+  O react-icons é uma biblioteca de ícones que fornece uma grande variedade de ícones de várias bibliotecas populares, como Material Design Icons, Font Awesome, Ionicons, entre outras. Esses ícones podem ser facilmente utilizados em projetos React, permitindo que os desenvolvedores incluam ícones em seus projetos sem precisar de criar os ícones do zero ou importar imagens externas.
+
+A biblioteca é muito fácil de usar, pois inclui ícones de várias bibliotecas, cada uma com seu próprio conjunto de ícones. Cada ícone é exportado como um componente React que pode ser facilmente incluído em um projeto. Os ícones são escaláveis, podendo ser ajustados para o tamanho desejado sem perder a qualidade.
+
+A react-icons é uma opção muito útil para projetos React que exigem a utilização de ícones, pois ela fornece um grande número de opções e a possibilidade de escolher ícones de várias bibliotecas populares em um só lugar, tornando mais fácil a escolha do ícone certo para um projeto específico.

@@ -3,27 +3,34 @@ import PropTypes from "prop-types";
 import "./Team.css";
 import Collaborator from "../Collaborator/Collaborator";
 
-const Team = (props) => {
+const Team = ({
+  collaborators,
+  name,
+  primaryColor,
+  secondaryColor,
+  onDeleteCollaborator,
+}) => {
   const styles = {
     team: {
-      backgroundColor: props.secondaryColor,
+      backgroundColor: secondaryColor,
     },
     h3: {
-      borderColor: props.primaryColor,
+      borderColor: primaryColor,
     },
   };
 
-  return props.collaborators.length > 0 ? (
+  return collaborators.length > 0 ? (
     <section className="team" style={styles.team}>
-      <h3 style={styles.h3}>{props.name}</h3>
+      <h3 style={styles.h3}>{name}</h3>
       <div className="collaborators">
-        {props.collaborators.map((collaborator, index) => {
+        {collaborators.map((collaborator, index) => {
           return (
             <Collaborator
               key={index}
               name={collaborator.name}
               employeePosition={collaborator.office}
               image={collaborator.imageLink}
+              onDelete={onDeleteCollaborator}
             />
           );
         })}

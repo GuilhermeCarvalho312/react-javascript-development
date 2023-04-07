@@ -2,6 +2,7 @@ import { useState } from "react";
 import Banner from "./components/Banner/Banner";
 import Forms from "./components/Forms/Forms";
 import Team from "./components/Team/Team";
+import Footer from "./components/Footer/Footer";
 
 /**
  * Um componente App que renderiza o Banner e o Forms.
@@ -82,6 +83,10 @@ function App() {
     });
   };
 
+  function deleteCollaborator() {
+    console.log("deleting collaborator");
+  }
+
   return (
     <div className="App">
       <Banner />
@@ -89,19 +94,24 @@ function App() {
         teams={getTeamsNames(teams)}
         onRegisteredEmployees={(employee) => onNewRegisteredEmployee(employee)}
       />
-      {teams.map((team, index) => {
-        return (
-          <Team
-            key={index}
-            name={team.teamName}
-            primaryColor={team.primaryColor}
-            secondaryColor={team.secondaryColor}
-            collaborators={employees.filter((personCollaborator) => {
-              return personCollaborator.team === team.teamName;
-            })}
-          />
-        );
-      })}
+      <section>
+        {employees.length > 0 ? <h1>Minha Organização</h1> : ""}
+        {teams.map((team, index) => {
+          return (
+            <Team
+              key={index}
+              name={team.teamName}
+              primaryColor={team.primaryColor}
+              secondaryColor={team.secondaryColor}
+              onDeleteCollaborator={deleteCollaborator}
+              collaborators={employees.filter((personCollaborator) => {
+                return personCollaborator.team === team.teamName;
+              })}
+            />
+          );
+        })}
+      </section>
+      <Footer />
     </div>
   );
 }

@@ -1,13 +1,15 @@
 import React, { Component } from "react";
+import { AiFillCloseCircle } from "react-icons/ai";
 import PropTypes from "prop-types";
 import "./Collaborator.css";
 
 class Collaborator extends Component {
   render() {
-    const { name, image, employeePosition } = this.props;
+    const { name, image, employeePosition, onDelete } = this.props;
 
     return (
       <div className="Collaborator">
+        <AiFillCloseCircle size={25} className="delete" onClick={onDelete} />
         <div className="cabecalho">
           <img src={image} alt={name} />
         </div>
@@ -23,6 +25,7 @@ Collaborator.propTypes = {
   name: PropTypes.string.isRequired,
   employeePosition: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default Collaborator;
