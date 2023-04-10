@@ -5,12 +5,14 @@ import "./Collaborator.css";
 
 class Collaborator extends Component {
   render() {
-    const { name, image, employeePosition, onDelete } = this.props;
+    const { name, image, employeePosition, onDelete, collaboratorCollor } =
+      this.props;
 
+    debugger;
     return (
       <div className="Collaborator">
         <AiFillCloseCircle size={25} className="delete" onClick={onDelete} />
-        <div className="cabecalho">
+        <div className="cabecalho" style={collaboratorCollor}>
           <img src={image} alt={name} />
         </div>
         <div className="rodape">

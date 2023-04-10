@@ -2,25 +2,39 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./Team.css";
 import Collaborator from "../Collaborator/Collaborator";
+import hexToRgba from "hex-to-rgba";
 
 const Team = ({
   collaborators,
   name,
-  primaryColor,
-  secondaryColor,
+  corDeDestaque,
+  corDeFundo,
   onDeleteCollaborator,
+  changeCollor,
 }) => {
   const styles = {
     team: {
-      backgroundColor: secondaryColor,
+      backgroundColor: hexToRgba(corDeDestaque, "0.3"),
     },
     h3: {
-      borderColor: primaryColor,
+      borderColor: corDeDestaque,
+    },
+    cabecalho: {
+      backgroundColor: corDeDestaque,
     },
   };
 
   return collaborators.length > 0 ? (
     <section className="team" style={styles.team}>
+      <input
+        value={styles.cabecalho.backgroundColor}
+        type="color"
+        className="input-cor"
+        onChange={(event) => {
+          changeCollor(event.target.value, name);
+        }}
+      />
+      <span className="warning">Altere a secondaryCollor do time aqui!</span>
       <h3 style={styles.h3}>{name}</h3>
       <div className="collaborators">
         {collaborators.map((collaborator, index) => {
@@ -28,6 +42,7 @@ const Team = ({
             <Collaborator
               key={index}
               name={collaborator.name}
+              collaboratorCollor={styles.cabecalho}
               employeePosition={collaborator.office}
               image={collaborator.imageLink}
               onDelete={onDeleteCollaborator}
@@ -43,8 +58,8 @@ const Team = ({
 
 Team.propTypes = {
   name: PropTypes.string.isRequired,
-  primaryColor: PropTypes.string.isRequired,
-  secondaryColor: PropTypes.string.isRequired,
+  corDeDestaque: PropTypes.string.isRequired,
+  secondaryCollor: PropTypes.string.isRequired,
 };
 
 export default Team;

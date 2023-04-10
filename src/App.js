@@ -11,43 +11,43 @@ import Footer from "./components/Footer/Footer";
  */
 function App() {
   const [employees, setEmployees] = useState([]);
-  const teams = [
+  const [teams, setTeams] = useState([
     {
       teamName: "Programação",
-      primaryColor: "#57C278",
-      secondaryColor: "#D9F7E9",
+      corDeDestaque: "#57C278",
+      corDeFundo: "#D9F7E9",
     },
     {
       teamName: "Frontend",
-      primaryColor: "#82CFFA",
-      secondaryColor: "#E8F8FF",
+      corDeDestaque: "#82CFFA",
+      corDeFundo: "#E8F8FF",
     },
     {
       teamName: "Data Science",
-      primaryColor: "#A6D157",
-      secondaryColor: "#F0F8E2",
+      corDeDestaque: "#A6D157",
+      corDeFundo: "#F0F8E2",
     },
     {
       teamName: "DevOps",
-      primaryColor: "#E06B69",
-      secondaryColor: "#FDE7E8",
+      corDeDestaque: "#E06B69",
+      corDeFundo: "#FDE7E8",
     },
     {
       teamName: "UX e Design",
-      primaryColor: "#DB6EBF",
-      secondaryColor: "#FAE9F5",
+      corDeDestaque: "#DB6EBF",
+      corDeFundo: "#FAE9F5",
     },
     {
       teamName: "Mobile",
-      primaryColor: "#FFBA05",
-      secondaryColor: "#FFF5D9",
+      corDeDestaque: "#FFBA05",
+      corDeFundo: "#FFF5D9",
     },
     {
       teamName: "Inovação e Gestão",
-      primaryColor: "#FF8A29",
-      secondaryColor: "#FFEEDF",
+      corDeDestaque: "#FF8A29",
+      corDeFundo: "#FFEEDF",
     },
-  ];
+  ]);
 
   /**
    * @memberof App
@@ -74,7 +74,7 @@ function App() {
    * @function getTeamsNames
    * @description Retorna uma lista de nomes de equipes.
    *
-   * @param {Array} teamsObject - Um array contendo objetos de equipe.
+   * @param {Array} teamsObject - Um array contendo objetos de equipe.s
    * @returns {Array} Uma matriz de nomes de equipe.
    */
   const getTeamsNames = (teamsObject) => {
@@ -85,6 +85,26 @@ function App() {
 
   function deleteCollaborator() {
     console.log("deleting collaborator");
+  }
+
+  /**
+   * @memberof App
+   * @function changeTeamCollor
+   * @description Altera a cor secundária de uma equipe.
+   *
+   * @param {string} collor - A nova cor secundária da equipe em formato hexadecimal.
+   * @param {string} name - O nome da equipe que terá sua cor secundária alterada.
+   */
+  function changeTeamCollor(collor, name) {
+    setTeams(
+      teams.map((team) => {
+        if (team.teamName === name) {
+          team.corDeDestaque = collor;
+        }
+
+        return team;
+      })
+    );
   }
 
   return (
@@ -99,10 +119,11 @@ function App() {
         {teams.map((team, index) => {
           return (
             <Team
+              changeCollor={changeTeamCollor}
               key={index}
               name={team.teamName}
-              primaryColor={team.primaryColor}
-              secondaryColor={team.secondaryColor}
+              corDeDestaque={team.corDeDestaque}
+              corDeFundo={team.corDeFundo}
               onDeleteCollaborator={deleteCollaborator}
               collaborators={employees.filter((personCollaborator) => {
                 return personCollaborator.team === team.teamName;
