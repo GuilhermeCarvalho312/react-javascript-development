@@ -232,6 +232,13 @@ function App() {
 
   const [employees, setEmployees] = useState(initialCollaborators);
 
+  /**   * @memberof App
+   * @function addIdsToCollaborators
+   * @description Função que adiciona um id único para cada colaborador do array InitialCollaborators
+   *
+   * @param {Array} collaborators - O Array contendo os funcionários
+   * @returns {void}
+   */
   function addIdsToCollaborators(collaborators) {
     for (const collaborator of collaborators) {
       if (collaborator.id === "") {
