@@ -8,7 +8,6 @@ class Collaborator extends Component {
     const { name, image, employeePosition, onDelete, collaboratorCollor } =
       this.props;
 
-    debugger;
     return (
       <div className="Collaborator">
         <AiFillCloseCircle size={25} className="delete" onClick={onDelete} />

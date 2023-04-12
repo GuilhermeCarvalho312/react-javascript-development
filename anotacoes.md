@@ -311,3 +311,22 @@ Essas técnicas são importantes para o desenvolvimento de aplicações web, per
 A biblioteca é muito fácil de usar, pois inclui ícones de várias bibliotecas, cada uma com seu próprio conjunto de ícones. Cada ícone é exportado como um componente React que pode ser facilmente incluído em um projeto. Os ícones são escaláveis, podendo ser ajustados para o tamanho desejado sem perder a qualidade.
 
 A react-icons é uma opção muito útil para projetos React que exigem a utilização de ícones, pois ela fornece um grande número de opções e a possibilidade de escolher ícones de várias bibliotecas populares em um só lugar, tornando mais fácil a escolha do ícone certo para um projeto específico.
+
+## Uuid:
+
+O UUID (Universally Unique Identifier) é um identificador padrão, composto por 128 bits, que é usado para identificar de forma exclusiva um objeto ou entidade em um sistema. Ele é frequentemente utilizado em aplicações distribuídas e em redes, para garantir a identificação única de entidades em diferentes sistemas.
+
+O pacote NPM UUID é uma biblioteca para geração de UUIDs em JavaScript. Ele oferece diferentes métodos para gerar UUIDs, incluindo versões baseadas em tempo, baseadas em nome e aleatórias.
+
+Um exemplo de uso do pacote NPM UUID em JavaScript seria:
+
+```javascript
+const { v4: uuidv4 } = require("uuid");
+
+// Gerando um UUID aleatório
+const id = uuidv4();
+
+console.log(id);
+```
+
+Neste exemplo, estamos utilizando o método v4 da biblioteca UUID para gerar um UUID aleatório e armazená-lo na variável id. Em seguida, estamos imprimindo o UUID no console. Cada vez que o programa é executado, um novo UUID será gerado.

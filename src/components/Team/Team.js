@@ -7,6 +7,7 @@ import hexToRgba from "hex-to-rgba";
 const Team = ({
   collaborators,
   name,
+  id,
   corDeDestaque,
   corDeFundo,
   onDeleteCollaborator,
@@ -31,7 +32,7 @@ const Team = ({
         type="color"
         className="input-cor"
         onChange={(event) => {
-          changeCollor(event.target.value, name);
+          changeCollor(event.target.value, id);
         }}
       />
       <span className="warning">Altere a secondaryCollor do time aqui!</span>
@@ -59,7 +60,7 @@ const Team = ({
 Team.propTypes = {
   name: PropTypes.string.isRequired,
   corDeDestaque: PropTypes.string.isRequired,
-  secondaryCollor: PropTypes.string.isRequired,
+  corDeFundo: PropTypes.string.isRequired,
 };
 
 export default Team;
