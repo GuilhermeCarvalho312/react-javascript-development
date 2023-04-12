@@ -14,48 +14,51 @@ import Footer from "./components/Footer/Footer";
 function App() {
   const [teams, setTeams] = useState([
     {
-      id: uuidv4(),
+      id: "",
       teamName: "Programação",
       corDeDestaque: "#57C278",
       corDeFundo: "#D9F7E9",
     },
     {
-      id: uuidv4(),
+      id: "",
       teamName: "Frontend",
       corDeDestaque: "#82CFFA",
       corDeFundo: "#E8F8FF",
     },
     {
-      id: uuidv4(),
+      id: "",
       teamName: "Data Science",
       corDeDestaque: "#A6D157",
       corDeFundo: "#F0F8E2",
     },
     {
-      id: uuidv4(),
+      id: "",
       teamName: "DevOps",
       corDeDestaque: "#E06B69",
       corDeFundo: "#FDE7E8",
     },
     {
-      id: uuidv4(),
+      id: "",
       teamName: "UX e Design",
       corDeDestaque: "#DB6EBF",
       corDeFundo: "#FAE9F5",
     },
     {
-      id: uuidv4(),
+      id: "",
       teamName: "Mobile",
       corDeDestaque: "#FFBA05",
       corDeFundo: "#FFF5D9",
     },
     {
-      id: uuidv4(),
+      id: "",
       teamName: "Inovação e Gestão",
       corDeDestaque: "#FF8A29",
       corDeFundo: "#FFEEDF",
     },
   ]);
+
+  addIdsToTeams(teams);
+
   const initialCollaborators = [
     {
       id: "",
@@ -244,6 +247,19 @@ function App() {
       if (collaborator.id === "") {
         collaborator.id = uuidv4();
       }
+    }
+  }
+
+  /**   * @memberof App
+   * @function addIdsToTeams
+   * @description Função que adiciona um id único para cada time do array de times
+   *
+   * @param {Array} collaborators - O Array contendo os times
+   * @returns {void}
+   */
+  function addIdsToTeams(teamsArray) {
+    for (let team of teamsArray) {
+      team.id = uuidv4();
     }
   }
 
