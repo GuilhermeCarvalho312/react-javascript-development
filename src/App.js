@@ -295,6 +295,7 @@ function App() {
 
   function deleteCollaborator() {
     console.log("deleting collaborator");
+    alert("Essa feature ainda não foi implementada! Sorry :c");
   }
 
   /**

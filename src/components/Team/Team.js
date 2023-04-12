@@ -35,7 +35,7 @@ const Team = ({
           changeCollor(event.target.value, id);
         }}
       />
-      <span className="warning">Altere a secondaryCollor do time aqui!</span>
+      <span className="warning">ALTERE A COR DO TIME AQUI!</span>
       <h3 style={styles.h3}>{name}</h3>
       <div className="collaborators">
         {collaborators.map((collaborator, index) => {
