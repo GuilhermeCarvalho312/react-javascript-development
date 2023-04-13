@@ -29,7 +29,8 @@ const TextField = (props) => {
         onChange={onTyped}
         required={props.mandatory}
         placeholder={props.placeholder}
-        type="text"
+        type={props.type}
+        className="form-control"
       />
     </div>
   );

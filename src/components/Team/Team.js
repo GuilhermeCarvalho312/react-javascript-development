@@ -35,7 +35,11 @@ const Team = ({
           changeCollor(event.target.value, id);
         }}
       />
-      <span className="warning">ALTERE A COR DO TIME AQUI!</span>
+
+      <span className="warning badge bg-secondary">
+        ALTERE A COR DO TIME AQUI!
+      </span>
+
       <h3 style={styles.h3}>{name}</h3>
       <div className="collaborators">
         {collaborators.map((collaborator, index) => {
@@ -43,6 +47,7 @@ const Team = ({
             <Collaborator
               key={index}
               name={collaborator.name}
+              id={collaborator.id}
               collaboratorCollor={styles.cabecalho}
               employeePosition={collaborator.office}
               image={collaborator.imageLink}

@@ -27,7 +27,6 @@
 }
 
 .warning {
-  flex-direction: row-reverse;
-  display: flex;
-  padding-top: 2%;
+  margin-left: 90% !important;
+  margin-top: 2% !important;
 }

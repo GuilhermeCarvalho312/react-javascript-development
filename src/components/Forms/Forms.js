@@ -16,6 +16,8 @@ const Forms = (props) => {
   const [office, setOffice] = useState("");
   const [imageLink, setImageLink] = useState("");
   const [team, setTeam] = useState(props.teams[0]);
+  const [isValid, setIsValid] = useState(false);
+  const [isSubmited, setIsSubmited] = useState(false);
   const isMandatory = true;
 
   /**
@@ -29,15 +31,34 @@ const Forms = (props) => {
     clearForms();
   };
 
+  /**
+   * Função que valida o formulário e atualiza o estado de validação.
+   *
+   * @function validateForm
+   * @returns {void}
+   */
+  const validateForm = () => {
+    const fields = [name, office, imageLink, team];
+
+    setIsValid(fields.every((field) => field !== ""));
+  };
+
+  /**
+   * Função que limpa os campos do formulário e redefine o valor de time para o valor padrão.
+   *
+   * @function clearForms
+   * @returns {void}
+   */
   const clearForms = () => {
     setName("");
     setOffice("");
     setImageLink("");
-    setTeam("");
+    setTeam(props.teams[0]);
+    setIsSubmited(true);
   };
 
   return (
-    <section className="forms">
+    <section className="forms mb-3">
       <form onSubmit={onSave}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
 
@@ -46,8 +67,10 @@ const Forms = (props) => {
           label="Nome"
           placeholder="Digite seu nome"
           value={name}
+          type={"text"}
           onChanged={(value) => {
             setName(value);
+            validateForm();
           }}
         />
         <TextField
@@ -55,8 +78,10 @@ const Forms = (props) => {
           label="Cargo"
           placeholder="Digite seu cargo"
           value={office}
+          type={"text"}
           onChanged={(value) => {
             setOffice(value);
+            validateForm();
           }}
         />
         <TextField
@@ -64,8 +89,10 @@ const Forms = (props) => {
           label="Imagem"
           placeholder="Informe o endereço de imagem"
           value={imageLink}
+          type={"url"}
           onChanged={(value) => {
             setImageLink(value);
+            validateForm();
           }}
         />
         <DropDownList
@@ -75,9 +102,10 @@ const Forms = (props) => {
           valueDropdown={team}
           onChanged={(value) => {
             setTeam(value);
+            validateForm();
           }}
         />
-        <Button>Criar card</Button>
+        <Button disabled={!isValid || isSubmited}>Criar Colaborador</Button>
       </form>
     </section>
   );

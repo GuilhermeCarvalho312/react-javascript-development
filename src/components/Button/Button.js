@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import "./Button.css";
 
 /**
@@ -11,7 +12,35 @@ import "./Button.css";
  * <Button url="https://www.example.com" isValid={true}>Criar card</Button>
  */
 const Button = (props) => {
-  return <button className="form-button">{props.children}</button>;
+  const [showAlert, setShowAlert] = useState(false);
+
+  return (
+    <>
+      {showAlert && (
+        <div
+          className="alert alert-success alert-dismissible fade show"
+          role="alert"
+        >
+          Colaborador criado com sucesso!
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="alert"
+            aria-label="Close"
+            onClick={() => setShowAlert(false)}
+          ></button>
+        </div>
+      )}
+
+      <button
+        onClick={() => setShowAlert(true)}
+        className="form-button btn btn-outline-primary btn-lg"
+        disabled={props.disabled}
+      >
+        {props.children}
+      </button>
+    </>
+  );
 };
 
 export default Button;

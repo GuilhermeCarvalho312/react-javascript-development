@@ -1,10 +1,13 @@
 /* eslint-disable no-sparse-arrays */
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+
 import Banner from "./components/Banner/Banner";
 import Forms from "./components/Forms/Forms";
 import Team from "./components/Team/Team";
 import Footer from "./components/Footer/Footer";
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 /**
  * Um componente App que renderiza o Banner e o Forms.
@@ -235,7 +238,8 @@ function App() {
 
   const [employees, setEmployees] = useState(initialCollaborators);
 
-  /**   * @memberof App
+  /**
+   * @memberof App
    * @function addIdsToCollaborators
    * @description Função que adiciona um id único para cada colaborador do array InitialCollaborators
    *
@@ -250,7 +254,8 @@ function App() {
     }
   }
 
-  /**   * @memberof App
+  /**
+   *  @memberof App
    * @function addIdsToTeams
    * @description Função que adiciona um id único para cada time do array de times
    *
@@ -273,9 +278,6 @@ function App() {
   const onNewRegisteredEmployee = (employee) => {
     const newEmployee = { ...employee, id: uuidv4() };
 
-    // console.table("newEmploye:", newEmployee);
-
-    debugger;
     setEmployees([...employees, newEmployee]);
   };
 
@@ -293,9 +295,12 @@ function App() {
     });
   };
 
-  function deleteCollaborator() {
-    console.log("deleting collaborator");
-    alert("Essa feature ainda não foi implementada! Sorry :c");
+  /**
+   * @function goDeleteCollaborator
+   * @description Deleta o colaborador
+   */
+  function goDeleteCollaborator(id) {
+    setEmployees(employees.filter((collaborator) => collaborator.id !== id));
   }
 
   /**
@@ -336,7 +341,7 @@ function App() {
               id={team.id}
               corDeDestaque={team.corDeDestaque}
               corDeFundo={team.corDeFundo}
-              onDeleteCollaborator={deleteCollaborator}
+              onDeleteCollaborator={goDeleteCollaborator}
               collaborators={employees.filter((personCollaborator, index) => {
                 if (personCollaborator === undefined) {
                   console.error(personCollaborator);

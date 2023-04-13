@@ -14,9 +14,10 @@ import "../../styles/DropDown.css";
  */
 const DropDownList = (props) => {
   return (
-    <div className="dropdown-list">
+    <div className=" dropdown-list">
       <label>{props.label}</label>
       <select
+        className="form-select"
         required={props.mandatory}
         value={props.valueDropdown}
         onChange={(event) => {
@@ -24,7 +25,11 @@ const DropDownList = (props) => {
         }}
       >
         {props.itens.map((item) => {
-          return <option key={item}>{item}</option>;
+          return (
+            <option className="dropdown-item" key={item}>
+              {item}
+            </option>
+          );
         })}
       </select>
     </div>
