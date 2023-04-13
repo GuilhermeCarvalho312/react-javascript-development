@@ -323,10 +323,16 @@ function App() {
     );
   }
 
+  function registerNewTeam(newTeam) {
+    debugger;
+    setTeams([...teams, { ...newTeam, id: uuidv4() }]);
+  }
+
   return (
     <div className="App">
       <Banner />
       <Forms
+        registerNewTeam={registerNewTeam}
         teams={getTeamsNames(teams)}
         onRegisteredEmployees={(employee) => onNewRegisteredEmployee(employee)}
       />

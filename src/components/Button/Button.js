@@ -13,15 +13,16 @@ import "./Button.css";
  */
 const Button = (props) => {
   const [showAlert, setShowAlert] = useState(false);
+  const baseClass = "fade show";
 
   return (
     <>
       {showAlert && (
         <div
-          className="alert alert-success alert-dismissible fade show"
+          className={props.alertBootstrapClass + " " + baseClass}
           role="alert"
         >
-          Colaborador criado com sucesso!
+          {props.alertBoxText}
           <button
             type="button"
             className="btn-close"
