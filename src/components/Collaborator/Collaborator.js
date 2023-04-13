@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Modal, Button } from "react-bootstrap";
-// import { AiFillCloseCircle } from "react-icons/ai";
 import PropTypes from "prop-types";
+
 import "./Collaborator.css";
+import CollaboratorModal from "../CollaboratorModal/CollaboratorModal";
 
 const Collaborator = ({
   name,
@@ -25,7 +25,6 @@ const Collaborator = ({
 
   return (
     <div className="Collaborator">
-      {/* <AiFillCloseCircle size={25} className="delete" onClick={onDelete} /> */}
       <button
         type="button"
         className="delete btn-close"
@@ -33,25 +32,11 @@ const Collaborator = ({
         onClick={handleShow}
       ></button>
 
-      {/* Modal */}
-      <>
-        <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-            <Modal.Title>Excluir colaborador</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            Tem certeza de que deseja excluir este colaborador?
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              Cancelar
-            </Button>
-            <Button variant="danger" onClick={handleExcluir}>
-              Excluir
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </>
+      <CollaboratorModal
+        show={show}
+        handleClose={handleClose}
+        handleExcluir={handleExcluir}
+      />
 
       <div className="cabecalho" style={collaboratorCollor}>
         <img src={image} alt={name} />
@@ -63,6 +48,7 @@ const Collaborator = ({
     </div>
   );
 };
+
 Collaborator.propTypes = {
   name: PropTypes.string.isRequired,
   employeePosition: PropTypes.string.isRequired,
