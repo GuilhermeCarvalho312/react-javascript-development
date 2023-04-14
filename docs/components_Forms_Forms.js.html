@@ -27,6 +27,7 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>import "./Forms.css";
+import validUrl from "valid-url";
 import TextField from "../TextField/TextField";
 import DropDownList from "../DropDownList/DropDownList";
 import Button from "../Button/Button";
@@ -43,9 +44,16 @@ const Forms = (props) => {
   const [name, setName] = useState("");
   const [office, setOffice] = useState("");
   const [imageLink, setImageLink] = useState("");
+  const [newTeamName, setNewTeamName] = useState("");
+  const [newTeamColor, setNewTeamColor] = useState("");
   const [team, setTeam] = useState(props.teams[0]);
+
+  // Variáveis de Validacao
   const [isValid, setIsValid] = useState(false);
   const [isSubmited, setIsSubmited] = useState(false);
+  const [isValidNewTeam, setIsValidNewTeam] = useState(false);
+  const [isSubmitedNewteam, setIsSubmitedNewteam] = useState(false);
+
   const isMandatory = true;
 
   /**
@@ -68,8 +76,32 @@ const Forms = (props) => {
   const validateForm = () => {
     const fields = [name, office, imageLink, team];
 
-    setIsValid(fields.every((field) => field !== ""));
+    setIsValid(fields.every((field) => field !== "") &amp;&amp; isUrl(imageLink));
   };
+
+  function validateNewTeamForm() {
+    const fields = [newTeamName, newTeamColor];
+
+    setIsValidNewTeam(
+      fields.every((field) => {
+        return field !== "";
+      })
+    );
+  }
+
+  /**
+   * Função que valida o se o campo imageLink é realmente uma url
+   *
+   * @function isUrl
+   * @returns {true | false}
+   */
+  function isUrl(string) {
+    if (validUrl.isUri(string)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   /**
    * Função que limpa os campos do formulário e redefine o valor de time para o valor padrão.
@@ -85,8 +117,15 @@ const Forms = (props) => {
     setIsSubmited(true);
   };
 
+  const clearNewForm = () => {
+    setNewTeamName("");
+    setNewTeamColor("");
+    setIsSubmitedNewteam(true);
+  };
+
   return (
     &lt;section className="forms mb-3">
+      {/* Form Novo colaborador */}
       &lt;form onSubmit={onSave}>
         &lt;h2>Preencha os dados para criar o card do colaborador&lt;/h2>
 
@@ -133,7 +172,62 @@ const Forms = (props) => {
             validateForm();
           }}
         />
-        &lt;Button disabled={!isValid || isSubmited}>Criar Colaborador&lt;/Button>
+        &lt;Button
+          alertBoxText={"Colaborador criado com sucesso!"}
+          alertBootstrapClass={"alert alert-success"}
+          disabled={!isValid || isSubmited}
+        >
+          Criar Colaborador
+        &lt;/Button>
+      &lt;/form>
+
+      {/* Form Novo time */}
+      &lt;form
+        className="new-form"
+        onSubmit={(event) => {
+          event.preventDefault();
+          props.registerNewTeam({
+            teamName: newTeamName,
+            corDeDestaque: newTeamColor,
+            corDeFundo: newTeamColor,
+          });
+
+          clearNewForm();
+          // resetSubmitedForm();
+        }}
+      >
+        &lt;h2>Preencha para criar um novo time&lt;/h2>
+        &lt;TextField
+          mandatory={isMandatory}
+          label="Nome"
+          placeholder="Digite o nome do time"
+          value={newTeamName}
+          type={"text"}
+          onChanged={(value) => {
+            setNewTeamName(value);
+            validateNewTeamForm();
+          }}
+        />
+        &lt;TextField
+          classCss="form-control form-control-color input-color"
+          mandatory={isMandatory}
+          label="Cor"
+          placeholder="Digite a cor do time"
+          value={newTeamColor}
+          type={"color"}
+          onChanged={(value) => {
+            setNewTeamColor(value);
+            validateNewTeamForm();
+          }}
+        />
+
+        &lt;Button
+          alertBootstrapClass="alert alert-primary"
+          alertBoxText="Novo time criado com sucesso"
+          disabled={!isValidNewTeam || isSubmitedNewteam}
+        >
+          Criar Novo Time
+        &lt;/Button>
       &lt;/form>
     &lt;/section>
   );
@@ -150,13 +244,13 @@ export default Forms;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#DropDownList">DropDownList</a></li><li><a href="global.html#Forms">Forms</a></li><li><a href="global.html#TextField">TextField</a></li><li><a href="global.html#clearForms">clearForms</a></li><li><a href="global.html#goDeleteCollaborator">goDeleteCollaborator</a></li><li><a href="global.html#validateForm">validateForm</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Alert">Alert</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#Collaborator">Collaborator</a></li><li><a href="global.html#DropDownList">DropDownList</a></li><li><a href="global.html#Forms">Forms</a></li><li><a href="global.html#TextField">TextField</a></li><li><a href="global.html#clearForms">clearForms</a></li><li><a href="global.html#goDeleteCollaborator">goDeleteCollaborator</a></li><li><a href="global.html#isUrl">isUrl</a></li><li><a href="global.html#validateForm">validateForm</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Apr 12 2023 23:00:34 GMT-0300 (Horário Padrão de Brasília)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Apr 14 2023 08:13:45 GMT-0300 (Horário Padrão de Brasília)
 </footer>
 
 <script> prettyPrint(); </script>

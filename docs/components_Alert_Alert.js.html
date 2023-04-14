@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: components/Button/Button.js</title>
+    <title>JSDoc: Source: components/Alert/Alert.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: components/Button/Button.js</h1>
+    <h1 class="page-title">Source: components/Alert/Alert.js</h1>
 
     
 
@@ -26,45 +26,35 @@
     
     <section>
         <article>
-            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
-import "./Button.css";
-import Alert from "../Alert/Alert";
+            <pre class="prettyprint source linenums"><code>import React from "react";
 
 /**
- * Componente de botão reutilizável para formulários.
+ * Componente reutilizável de alerta para exibir mensagens para o usuário.
  *
  * @param {Object} props - As propriedades do componente.
- * @param {React.ReactNode} props.children - O conteúdo do botão.
- * @param {string} props.url - A URL para verificar se é um link válido.
- * @returns {React.Element} Um elemento React que representa o botão.
+ * @param {string} props.bootstrapClass - A classe Bootstrap para estilizar o alerta (por exemplo, "alert alert-success").
+ * @param {string} props.text - O texto a ser exibido dentro do alerta.
+ * @param {Function} props.onClose - A função a ser chamada quando o botão "Fechar" for clicado.
+ * @returns {React.Element} Um elemento React que representa o alerta.
  * @example
- * &lt;Button url="https://www.example.com" isValid={true}>Criar card&lt;/Button>
+ * &lt;Alert bootstrapClass="alert alert-danger" text="Ocorreu um erro." onClose={handleCloseAlert} />
  */
-const Button = (props) => {
-  const [showAlert, setShowAlert] = useState(false);
-
+const Alert = (props) => {
   return (
-    &lt;>
-      {showAlert &amp;&amp; (
-        &lt;Alert
-          bootstrapClass={props.alertBootstrapClass}
-          text={props.alertBoxText}
-          onClose={() => setShowAlert(false)}
-        />
-      )}
-
+    &lt;div className={props.bootstrapClass} role="alert">
+      {props.text}
       &lt;button
-        onClick={() => setShowAlert(true)}
-        className="form-button btn btn-outline-primary btn-lg"
-        disabled={props.disabled}
-      >
-        {props.children}
-      &lt;/button>
-    &lt;/>
+        type="button"
+        className="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+        onClick={props.onClose}
+      >&lt;/button>
+    &lt;/div>
   );
 };
 
-export default Button;
+export default Alert;
 </code></pre>
         </article>
     </section>

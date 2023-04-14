@@ -104,6 +104,265 @@
     
 
     
+    <h4 class="name" id="Alert"><span class="type-signature"></span>Alert<span class="signature">(props)</span><span class="type-signature"> &rarr; {React.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Componente reutilizável de alerta para exibir mensagens para o usuário.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">As propriedades do componente.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>bootstrapClass</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A classe Bootstrap para estilizar o alerta (por exemplo, "alert alert-success").</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>text</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">O texto a ser exibido dentro do alerta.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onClose</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A função a ser chamada quando o botão "Fechar" for clicado.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_Alert_Alert.js.html">components/Alert/Alert.js</a>, <a href="components_Alert_Alert.js.html#line14">line 14</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Um elemento React que representa o alerta.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">React.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>&lt;Alert bootstrapClass="alert alert-danger" text="Ocorreu um erro." onClose={handleCloseAlert} /></code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="App"><span class="type-signature"></span>App<span class="signature">()</span><span class="type-signature"> &rarr; {React.Element}</span></h4>
     
 
@@ -638,7 +897,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Button_Button.js.html">components/Button/Button.js</a>, <a href="components_Button_Button.js.html#line14">line 14</a>
+        <a href="components_Button_Button.js.html">components/Button/Button.js</a>, <a href="components_Button_Button.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -692,6 +951,375 @@
     <h5>Example</h5>
     
     <pre class="prettyprint"><code>&lt;Button url="https://www.example.com" isValid={true}>Criar card&lt;/Button></code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="Collaborator"><span class="type-signature"></span>Collaborator<span class="signature">(props)</span><span class="type-signature"> &rarr; {JSX.Element}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Componente que representa um colaborador na lista.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>props</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">As propriedades do componente.
+                <h6>Properties</h6>
+                
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">O nome do colaborador.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>image</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A URL da imagem do colaborador.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>employeePosition</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A posição do colaborador na empresa.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">O ID do colaborador.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onDelete</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Função a ser executada quando o colaborador for excluído.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>collaboratorCollor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Objeto com a cor do cabeçalho do colaborador.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>favorite</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Indica se o colaborador é um favorito.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onFavorite</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Função a ser executada quando o colaborador for favoritado/desfavoritado.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_Collaborator_Collaborator.js.html">components/Collaborator/Collaborator.js</a>, <a href="components_Collaborator_Collaborator.js.html#line20">line 20</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    - Elemento React que representa um colaborador.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">JSX.Element</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
 
 
 
@@ -1151,7 +1779,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Forms_Forms.js.html">components/Forms/Forms.js</a>, <a href="components_Forms_Forms.js.html#line14">line 14</a>
+        <a href="components_Forms_Forms.js.html">components/Forms/Forms.js</a>, <a href="components_Forms_Forms.js.html#line15">line 15</a>
     </li></ul></dd>
     
 
@@ -1561,7 +2189,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Forms_Forms.js.html">components/Forms/Forms.js</a>, <a href="components_Forms_Forms.js.html#line46">line 46</a>
+        <a href="components_Forms_Forms.js.html">components/Forms/Forms.js</a>, <a href="components_Forms_Forms.js.html#line78">line 78</a>
     </li></ul></dd>
     
 
@@ -1667,7 +2295,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="App.js.html">App.js</a>, <a href="App.js.html#line298">line 298</a>
+        <a href="App.js.html">App.js</a>, <a href="App.js.html#line320">line 320</a>
     </li></ul></dd>
     
 
@@ -1692,6 +2320,115 @@
 
 
 
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="isUrl"><span class="type-signature"></span>isUrl<span class="signature">()</span><span class="type-signature"> &rarr; {true|false}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Função que valida o se o campo imageLink é realmente uma url
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="components_Forms_Forms.js.html">components/Forms/Forms.js</a>, <a href="components_Forms_Forms.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">true</span>
+|
+
+<span class="param-type">false</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -1755,7 +2492,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="components_Forms_Forms.js.html">components/Forms/Forms.js</a>, <a href="components_Forms_Forms.js.html#line34">line 34</a>
+        <a href="components_Forms_Forms.js.html">components/Forms/Forms.js</a>, <a href="components_Forms_Forms.js.html#line42">line 42</a>
     </li></ul></dd>
     
 
@@ -1819,13 +2556,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#App">App</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#DropDownList">DropDownList</a></li><li><a href="global.html#Forms">Forms</a></li><li><a href="global.html#TextField">TextField</a></li><li><a href="global.html#clearForms">clearForms</a></li><li><a href="global.html#goDeleteCollaborator">goDeleteCollaborator</a></li><li><a href="global.html#validateForm">validateForm</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Alert">Alert</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Banner">Banner</a></li><li><a href="global.html#Button">Button</a></li><li><a href="global.html#Collaborator">Collaborator</a></li><li><a href="global.html#DropDownList">DropDownList</a></li><li><a href="global.html#Forms">Forms</a></li><li><a href="global.html#TextField">TextField</a></li><li><a href="global.html#clearForms">clearForms</a></li><li><a href="global.html#goDeleteCollaborator">goDeleteCollaborator</a></li><li><a href="global.html#isUrl">isUrl</a></li><li><a href="global.html#validateForm">validateForm</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Apr 12 2023 23:00:34 GMT-0300 (Horário Padrão de Brasília)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Fri Apr 14 2023 08:13:45 GMT-0300 (Horário Padrão de Brasília)
 </footer>
 
 <script> prettyPrint(); </script>
