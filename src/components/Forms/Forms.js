@@ -97,6 +97,7 @@ const Forms = (props) => {
 
   return (
     <section className="forms mb-3">
+      {/* Form Novo colaborador */}
       <form onSubmit={onSave}>
         <h2>Preencha os dados para criar o card do colaborador</h2>
 
@@ -152,6 +153,7 @@ const Forms = (props) => {
         </Button>
       </form>
 
+      {/* Form Novo time */}
       <form
         className="new-form"
         onSubmit={(event) => {
@@ -179,11 +181,12 @@ const Forms = (props) => {
           }}
         />
         <TextField
+          classCss="form-control form-control-color input-color"
           mandatory={isMandatory}
           label="Cor"
           placeholder="Digite a cor do time"
           value={newTeamColor}
-          type={"text"}
+          type={"color"}
           onChanged={(value) => {
             setNewTeamColor(value);
             validateNewTeamForm();

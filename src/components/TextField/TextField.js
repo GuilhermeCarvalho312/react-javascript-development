@@ -30,7 +30,7 @@ const TextField = (props) => {
         required={props.mandatory}
         placeholder={props.placeholder}
         type={props.type}
-        className="form-control"
+        className={`form-group ${props.classCss}`}
       />
     </div>
   );

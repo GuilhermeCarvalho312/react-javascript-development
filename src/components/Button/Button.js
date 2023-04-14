@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Button.css";
+import Alert from "../Alert/Alert";
 
 /**
  * Componente de botão reutilizável para formulários.
@@ -13,24 +14,15 @@ import "./Button.css";
  */
 const Button = (props) => {
   const [showAlert, setShowAlert] = useState(false);
-  const baseClass = "fade show";
 
   return (
     <>
       {showAlert && (
-        <div
-          className={props.alertBootstrapClass + " " + baseClass}
-          role="alert"
-        >
-          {props.alertBoxText}
-          <button
-            type="button"
-            className="btn-close"
-            data-bs-dismiss="alert"
-            aria-label="Close"
-            onClick={() => setShowAlert(false)}
-          ></button>
-        </div>
+        <Alert
+          bootstrapClass={props.alertBootstrapClass}
+          text={props.alertBoxText}
+          onClose={() => setShowAlert(false)}
+        />
       )}
 
       <button

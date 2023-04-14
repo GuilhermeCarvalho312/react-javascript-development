@@ -17,6 +17,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [teams, setTeams] = useState([
     {
+      isFavorite: false,
       id: "",
       teamName: "Programação",
       corDeDestaque: "#57C278",
@@ -64,6 +65,7 @@ function App() {
 
   const initialCollaborators = [
     {
+      isFavorite: false,
       id: "",
       name: "Lelouch Lamperouge",
       office: "Desenvolvedor Frontend",
@@ -72,6 +74,7 @@ function App() {
       team: teams[0].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Edward Elric",
       office: "Desenvolvedor Full Stack",
@@ -80,6 +83,7 @@ function App() {
       team: teams[0].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Yoriichi",
       office: "Desenvolvedor Backend",
@@ -88,6 +92,7 @@ function App() {
       team: teams[0].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Naruto Uzumaki",
       office: "Desenvolvedor Frontend",
@@ -96,6 +101,7 @@ function App() {
       team: teams[1].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Sakura Haruno",
       office: "Designer UX/UI",
@@ -104,6 +110,7 @@ function App() {
       team: teams[1].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Ichigo Kurosaki",
       office: "Desenvolvedor Frontend",
@@ -112,6 +119,7 @@ function App() {
       team: teams[1].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Light Yagami",
       office: "Cientista de Dados",
@@ -120,6 +128,7 @@ function App() {
       team: teams[2].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Rintarou Okabe",
       office: "Analista de Dados",
@@ -128,6 +137,7 @@ function App() {
       team: teams[2].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Kyouma Mabuchi",
       office: "Cientista de Dados",
@@ -136,6 +146,7 @@ function App() {
       team: teams[2].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Saitama",
       office: "Engenheiro de Sistemas",
@@ -144,6 +155,7 @@ function App() {
       team: teams[3].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: " Monkey D. Luffy",
       office: "Especialista em Infraestrutura",
@@ -153,6 +165,7 @@ function App() {
     },
 
     {
+      isFavorite: false,
       id: "",
       name: "Aang",
       office: " Arquiteto de Soluções DevOps",
@@ -161,6 +174,7 @@ function App() {
       team: teams[3].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Gon Freecss",
       office: "Designer UX/UI",
@@ -169,6 +183,7 @@ function App() {
       team: teams[4].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Killua Zoldyck",
       office: "Designer Gráfico",
@@ -177,6 +192,7 @@ function App() {
       team: teams[4].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Neji Hyuga",
       office: " Designer UX/UI",
@@ -185,6 +201,7 @@ function App() {
       team: teams[4].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: " Eren Yeager",
       office: "Desenvolvedor Mobile",
@@ -193,6 +210,7 @@ function App() {
       team: teams[5].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Mikasa Ackerman",
       office: "Desenvolvedor Mobile",
@@ -201,6 +219,7 @@ function App() {
       team: teams[5].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Levi Ackerman",
       office: "Desenvolvedor Mobile",
@@ -209,6 +228,7 @@ function App() {
       team: teams[5].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Vegeta",
       office: "Gerente de Projetos",
@@ -217,6 +237,7 @@ function App() {
       team: teams[6].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "Goku",
       office: "Especialista em Inovação",
@@ -225,6 +246,7 @@ function App() {
       team: teams[6].teamName,
     },
     {
+      isFavorite: false,
       id: "",
       name: "L",
       office: "Analista de Negócios",
@@ -236,7 +258,7 @@ function App() {
 
   addIdsToCollaborators(initialCollaborators);
 
-  const [employees, setEmployees] = useState(initialCollaborators);
+  const [collaborators, setCollaborators] = useState(initialCollaborators);
 
   /**
    * @memberof App
@@ -278,7 +300,7 @@ function App() {
   const onNewRegisteredEmployee = (employee) => {
     const newEmployee = { ...employee, id: uuidv4() };
 
-    setEmployees([...employees, newEmployee]);
+    setCollaborators([...collaborators, newEmployee]);
   };
 
   /**
@@ -300,7 +322,9 @@ function App() {
    * @description Deleta o colaborador
    */
   function goDeleteCollaborator(id) {
-    setEmployees(employees.filter((collaborator) => collaborator.id !== id));
+    setCollaborators(
+      collaborators.filter((collaborator) => collaborator.id !== id)
+    );
   }
 
   /**
@@ -324,8 +348,19 @@ function App() {
   }
 
   function registerNewTeam(newTeam) {
-    debugger;
     setTeams([...teams, { ...newTeam, id: uuidv4() }]);
+  }
+
+  function resolveFavorite(collaboratorId) {
+    setCollaborators(
+      collaborators.map((collaborator) => {
+        if (collaborator.id === collaboratorId) {
+          collaborator.isFavorite = !collaborator.isFavorite;
+        }
+
+        return collaborator;
+      })
+    );
   }
 
   return (
@@ -337,10 +372,12 @@ function App() {
         onRegisteredEmployees={(employee) => onNewRegisteredEmployee(employee)}
       />
       <section>
-        {employees.length > 0 ? <h1>Minha Organização</h1> : ""}
+        {collaborators.length > 0 ? <h1>Minha Organização</h1> : ""}
         {teams.map((team, index) => {
           return (
             <Team
+              favoriteTeamComponent
+              onFavoriteTeamComponent={resolveFavorite}
               changeCollor={changeTeamCollor}
               key={index}
               name={team.teamName}
@@ -348,13 +385,15 @@ function App() {
               corDeDestaque={team.corDeDestaque}
               corDeFundo={team.corDeFundo}
               onDeleteCollaborator={goDeleteCollaborator}
-              collaborators={employees.filter((personCollaborator, index) => {
-                if (personCollaborator === undefined) {
-                  console.error(personCollaborator);
-                  console.log(index);
+              collaborators={collaborators.filter(
+                (personCollaborator, index) => {
+                  if (personCollaborator === undefined) {
+                    console.error(personCollaborator);
+                    console.log(index);
+                  }
+                  return personCollaborator.team === team.teamName;
                 }
-                return personCollaborator.team === team.teamName;
-              })}
+              )}
             />
           );
         })}

@@ -12,6 +12,7 @@ const Team = ({
   corDeFundo,
   onDeleteCollaborator,
   changeCollor,
+  onFavoriteTeamComponent,
 }) => {
   const styles = {
     team: {
@@ -52,6 +53,8 @@ const Team = ({
               employeePosition={collaborator.office}
               image={collaborator.imageLink}
               onDelete={onDeleteCollaborator}
+              onFavorite={onFavoriteTeamComponent}
+              favorite={collaborator.isFavorite}
             />
           );
         })}
